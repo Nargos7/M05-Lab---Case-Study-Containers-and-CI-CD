@@ -1,0 +1,21 @@
+
+name: Super-linter
+
+on:push
+
+jobs:
+  super-linter:
+    name: link code base
+    run-on:ubuntu-latest
+
+    steps:
+      name: checkout code
+      uses: actions/checkout@v2
+
+      name: Run super-linter
+      usus: github/super-linter@v4
+
+      env:
+        FAULT_BRANCH: main
+        GITHUN_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        
